@@ -1,0 +1,40 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        },
+        "cordova-plugin-xunfeiListenSpeaking": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        },
+        "cordova-plugin-baidumaplocation": {
+            "ANDROID_KEY": "WWx5gacGxKgv77R4dFIGqOnX7wBf3quj",
+            "IOS_KEY": "value",
+            "IOS_LOCATION_DESC": "请点击'好'以允许访问。",
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.test.hardwaretest"
+        }
+    }
+}
