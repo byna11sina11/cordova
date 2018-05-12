@@ -119,12 +119,17 @@ document.getElementById("voiceTotext").onclick=function voiceTotext(){
     console.log(error);
     },true,true);
 }
+var latitude=40.814204;
+var longitude=111.747947;
+var locationDetail="";
 document.getElementById("locationYou").onclick=function locationYou(){
 
                     //定位数据获取成功响应
                     var onSuccess = function(position) {
-                        alert('纬度: '          + position.coords.latitude          + '\n' +
-                              '经度: '         + position.coords.longitude         + '\n' +
+                        latitude=position.coords.latitude;
+                        longitude=position.coords.longitude;
+                        alert('经度: '          + position.coords.latitude          + '\n' +
+                              '纬度: '         + position.coords.longitude         + '\n' +
                               '海拔: '          + position.coords.altitude          + '\n' +
                               '水平精度: '          + position.coords.accuracy          + '\n' +
                               '垂直精度: ' + position.coords.altitudeAccuracy  + '\n' +
@@ -142,13 +147,26 @@ document.getElementById("locationYou").onclick=function locationYou(){
                     //开始获取定位数据
                     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
+
 document.getElementById("locationBaidu").onclick=function locationBaidu(){
           baidumap_location.getCurrentPosition(function (result) {
-            var latitude=result.latitude;
-            var lontitude=result.lontitude;
-           alert('经度： '+lontitude+"\n"+
-           "纬度： "+latitude);
+            latitude=result.latitude;
+            longitude=result.longitude;
+            var country=result.country;
+            var city=result.city;
+            var district=result.district;
+            var street=result.street;
+            var locationDescribe=result.locationDescribe
+            locationDetail=country+city+district+street+locationDescribe;
+           alert('经度： '+longitude+"\n"+
+           "纬度： "+latitude+"\n"+
+           "地址描述："+"\n"+
+           locationDetail);
           }, function (error) {
 
           });
+}
+document.getElementById("showInMap").onclick=function showInMap(){
+   document.location.href="showmap.html?latitude="+latitude+"?longitude="+longitude;
+
 }
