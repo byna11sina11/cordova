@@ -28,8 +28,8 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        document.getElementById("picCapture").addEventListener("click",imageCapture);
-        document.getElementById("videoCapture").addEventListener("click",videoCapture);
+       // document.getElementById("picCapture").addEventListener("click",imageCapture);
+        //document.getElementById("videoCapture").addEventListener("click",videoCapture);
     },
 
     // Update DOM on a Received Event
@@ -168,5 +168,57 @@ document.getElementById("locationBaidu").onclick=function locationBaidu(){
 }
 document.getElementById("showInMap").onclick=function showInMap(){
    document.location.href="showmap.html?latitude="+latitude+"?longitude="+longitude;
+
+}
+var media2;
+document.getElementById("voicePlay").onclick=function voiceCapture(){
+    if(!media2){
+         media2 = new Media('test.mp3', function () {
+                alert('success');
+            }, function (err) {
+                //alert('加载失败：' + JSON.stringify(err));
+            });
+    }
+
+
+
+   media2.play();
+  // media2.startRecord();
+    document.getElementById("voicePlayStop").addEventListener("click",function(){
+        media2.pause();
+    });
+
+}
+document.getElementById("voiceCapture").onclick=function voiceCapture(){
+   //alert("hello");
+ media2 = new Media('record.mp3', function () {
+       // alert('success');
+    }, function (err) {
+        //alert('加载失败：' + JSON.stringify(err));
+    });
+  //media2.play();
+   media2.startRecord();
+   console.info('begin record');
+    document.getElementById("voiceStop").addEventListener("click",function(){
+        console.info('click stop');
+        media2.stopRecord();
+    });
+    //alert('录音时长：' + media2.getDuration());
+   // media2.stopRecord();
+}
+
+document.getElementById("picCapture").onclick=function picCapture(){
+   console.log("onclick image");
+
+   navigator.device.capture.captureImage(onSuccess,onError,{limit:1})
+   function onSuccess(mediaFiles){
+       for(var i=0;i<mediaFiles.length;i++){
+               var path=mediaFiles[i].fullPath;
+               console.log(path);
+           }
+       }
+   function onError(error){
+           console.log(error.code);
+       }
 
 }

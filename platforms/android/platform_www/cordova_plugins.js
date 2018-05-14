@@ -278,6 +278,22 @@ module.exports = [
         "clobbers": [
             "baidumap_location"
         ]
+    },
+    {
+        "id": "cordova-plugin-media.MediaError",
+        "file": "plugins/cordova-plugin-media/www/MediaError.js",
+        "pluginId": "cordova-plugin-media",
+        "clobbers": [
+            "window.MediaError"
+        ]
+    },
+    {
+        "id": "cordova-plugin-media.Media",
+        "file": "plugins/cordova-plugin-media/www/Media.js",
+        "pluginId": "cordova-plugin-media",
+        "clobbers": [
+            "window.Media"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -290,7 +306,8 @@ module.exports.metadata =
     "cordova-sqlite-storage": "2.3.1",
     "cordova-plugin-xunfeiListenSpeaking": "0.0.1",
     "cordova-plugin-geolocation": "2.4.3",
-    "cordova-plugin-baidumaplocation": "3.2.0"
+    "cordova-plugin-baidumaplocation": "3.2.0",
+    "cordova-plugin-media": "2.4.1"
 };
 // BOTTOM OF METADATA
 });
